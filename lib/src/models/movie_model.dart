@@ -62,4 +62,12 @@ class Movie {
     overview = json['overview'];
     releaseDate = json['release_date'];
   }
+
+  getPosterImage() {
+    if (posterPath == null) {
+      return 'https://www.jainsusa.com/images/store/landscape/not-available.jpg';
+    }
+
+    return 'https://image.tmdb.org/t/p/w500/$posterPath';
+  }
 }
