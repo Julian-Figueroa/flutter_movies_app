@@ -11,6 +11,7 @@ class MoviesProvider {
   String _language = 'en-EN';
   String _nowPlayingPath = '3/movie/now_playing';
   String _popularPath = '3/movie/popular';
+  String _queryPath = '3/search/movie';
 
   int _popularsPage = 0;
 
@@ -83,5 +84,15 @@ class MoviesProvider {
     final cast = new Cast.fromJsonList(decodedData['cast']);
 
     return cast.actors;
+  }
+
+  Future<List<Movie>> searchMovie(String query) async {
+    final url = Uri.https(_url, _queryPath, {
+      'api_key': _apiKey,
+      'language': _language,
+      'query': query,
+    });
+
+    return await _processResp(url);
   }
 }

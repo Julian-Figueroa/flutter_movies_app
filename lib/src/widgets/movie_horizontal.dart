@@ -37,6 +37,7 @@ class HorizontalMovie extends StatelessWidget {
   }
 
   Widget _card(BuildContext context, Movie movie) {
+    movie.uniqueId = '${movie.id}-poster';
     final card = Container(
       margin: EdgeInsets.only(right: 15.0),
       child: Column(
@@ -51,7 +52,7 @@ class HorizontalMovie extends StatelessWidget {
                 height: 160.0,
               ),
             ),
-            tag: movie.id,
+            tag: movie.uniqueId,
           ),
           SizedBox(
             height: 5.0,

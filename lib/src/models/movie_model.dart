@@ -14,6 +14,8 @@ class Movies {
 }
 
 class Movie {
+  // New Custom ID
+  String uniqueId;
   int voteCount;
   int id;
   bool video;
